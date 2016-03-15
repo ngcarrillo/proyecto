@@ -39,9 +39,19 @@ public class Usuarios {
          return valor;
     }
     
+    public int compruebaAdmin(String nuser){
+        int admin = 0;
+        for (int i=0;i<users.size();i++){
+          if (nuser.equals(users.get(i).nombre)) {
+              admin = users.get(i).permisos;
+          } 
+      }
+        return admin;
+    }
+    
     public void volcarusuarios(){
-        users.add(new Users("Aaron","password"));
-        users.add(new Users("Nuria","password2"));
+        users.add(new Users("Aaron","password",1));
+        users.add(new Users("Nuria","password2",0));
     }
     
     

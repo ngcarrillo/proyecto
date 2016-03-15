@@ -30,7 +30,7 @@ public class Utils {
     }
     
     public void menu(String nuser){
-        imprime("==============================================\nHola "+nuser +", elige que quieres hacer\n  Ver tus correos (Opcion 1)\n  Borrar un correo (Opcion 2)\n  Enviar un correo (Opcion 3)\n  Salir del programa(Opcion 0)\nElige la opcion que quieres\n==============================================");
+        imprime("==============================================\nHola "+nuser +", elige que quieres hacer\n  Ver tus correos (Opcion 1)\n  Borrar un correo (Opcion 2)\n  Enviar un correo (Opcion 3)\n  Gestion de usuarios, solo si eres administrador puedes hacerlo (Opcion 4)\n  Salir del programa(Opcion 0)\nElige la opcion que quieres\n==============================================");
     }
      
     public int smenu(){

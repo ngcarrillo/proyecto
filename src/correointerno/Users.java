@@ -11,8 +11,10 @@ package correointerno;
  */
 public class Users {
     String nombre, password;
-    Users(String nombre, String password){
+    int permisos;
+    Users(String nombre, String password, int permisos){
         this.nombre = nombre;
         this.password = password;
+        this.permisos = permisos;
         }
 }

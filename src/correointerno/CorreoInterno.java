@@ -15,7 +15,7 @@ public class CorreoInterno {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Creamos objetos y variables que usaremos a lo largo de la aplicacion
         Utils util = new Utils();
         Usuarios user = new Usuarios();
         Correos correo = new Correos();
@@ -26,9 +26,11 @@ public class CorreoInterno {
         user.volcarusuarios();
         correo.volcarcorreos();
         
+        //Mensaje de bienvenida para la aplicacion
         int autenticado = 0;
         util.imprime("Bienvenido al correo interno");
         
+        //Comprobamos que el usuario tenga cuenta de correo y pueda acceder
         do {
         util.imprime("Introduce tu nombre de usuario");
         nuser = util.qstring();
@@ -38,6 +40,7 @@ public class CorreoInterno {
         if (autenticado == 0) { util.imprime("@@@ Error de credenciales, vuelve a probar @@@"); }
         } while (autenticado == 0);
         
+        //Mostramos el menu para el usuario
         do {
         util.menu(nuser);
         
@@ -68,7 +71,7 @@ public class CorreoInterno {
                     salir = util.smenu();
                 break;
             case 4:
-                
+                if (user.compruebaAdmin(nuser) == 0) { util.imprime("No tienes permisos gestionar usuarios"); } else { }
                 break;
             case 0:
                 salir = 0;
