@@ -5,7 +5,15 @@
  */
 package correointerno;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +26,7 @@ public class Correos {
     //Se listan los correos para el usuario
     public void ver (String nuser){
         int contador = 1;
-        for (int i=0;i<email.size();i++){
+         for (int i=0;i<email.size();i++){
             if (nuser.equals(email.get(i).ureceptor)){
                 util.imprime(contador + " - " +email.get(i).titulo);
                 contador++;
@@ -66,4 +74,48 @@ public class Correos {
         email.add(new Email("Nuria","Aaron","Proyecto correo 4","Correo enviado de Aaron para Nuria. Cuarto correo del proyecto"));
         email.add(new Email("Nuria","Aaron","Proyecto correo 5","Correo enviado de Aaron para Nuria. Quinto correo del proyecto"));
     }
+    
+    public void ficheroCorreos(){
+       
+         BufferedWriter bw;
+           bw=null;
+        try {
+
+            bw = new BufferedWriter(new FileWriter("correo.txt"));
+            for (Email email1 : email) {
+                bw.write(email1.uenvia);
+                bw.write(email1.ureceptor);
+                bw.write(email1.titulo);
+                bw.write(email1.contenido);
+                bw.write("\n");
+                  
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Correos.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+             try {
+                 bw.close();
+             } catch (IOException ex) {
+                 Logger.getLogger(Correos.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        }
+}
+    /**supuestamente en internet creaban un fichero desde un archivo asi
+     * yo no fui capaz la verdad
+     * @param archivo
+     * @return 
+     
+   public static ArrayList cargar(File archivo)(){     
+    //ObjectInputStream ficheroEntrada = null;
+        ArrayList correos = null;
+        try {
+            ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream("correo.txt"));
+            correos =(ArrayList) ficheroEntrada.readObject();
+            ficheroEntrada.close();
+            return correos;
+        } catch (ClassNotFoundException | IOException cnfe) {
+            return null;
+        }
+    }/*
+
 }
