@@ -15,6 +15,7 @@ public class Usuarios {
     ArrayList<Users> users = new ArrayList<>();
     Utils util = new Utils();
     
+    //Comprobamos si el usuario existe y si ha introducido los credenciales correctos
     public int comprueba(String nuser, String npass){
       int pasa = 0;
       for (int i=0;i<users.size();i++){
@@ -29,6 +30,7 @@ public class Usuarios {
      return pasa;
     }
     
+    //Comprobamos si el usuario al que le vamos a enviar el correo existe
     public int cuserenv(String ureceptor){
         int valor = 0;
          for (int i=0;i<users.size();i++){
@@ -39,6 +41,7 @@ public class Usuarios {
          return valor;
     }
     
+    //Comprobamos si el usuario que quiere acceder tiene permisos
     public int compruebaAdmin(String nuser){
         int admin = 0;
         for (int i=0;i<users.size();i++){
@@ -49,6 +52,7 @@ public class Usuarios {
         return admin;
     }
     
+    //Metodo para volcar usuarios de prueba
     public void volcarusuarios(){
         users.add(new Users("Aaron","password",1));
         users.add(new Users("Nuria","password2",0));

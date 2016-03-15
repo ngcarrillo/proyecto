@@ -29,10 +29,12 @@ public class Utils {
          return respuesta;
     }
     
+    //Menu de texto
     public void menu(String nuser){
         imprime("==============================================\nHola "+nuser +", elige que quieres hacer\n  Ver tus correos (Opcion 1)\n  Borrar un correo (Opcion 2)\n  Enviar un correo (Opcion 3)\n  Gestion de usuarios, solo si eres administrador puedes hacerlo (Opcion 4)\n  Salir del programa(Opcion 0)\nElige la opcion que quieres\n==============================================");
     }
      
+    //Preguntamos al usuario si quiere volver al menu despues de hacer alguna accion o quiere salir del programa
     public int smenu(){
         int salir = 0;
               do {

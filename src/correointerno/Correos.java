@@ -15,7 +15,7 @@ public class Correos {
     ArrayList<Email> email = new ArrayList<>();
     Utils util = new Utils();
     
-    
+    //Se listan los correos para el usuario
     public void ver (String nuser){
         int contador = 1;
         for (int i=0;i<email.size();i++){
@@ -27,13 +27,14 @@ public class Correos {
         }
     }
     
+    //Enviamos un correo
     public void agregar(String ureceptor, String uenvia, String titulo, String contenido){
        email.add(new Email(ureceptor,uenvia,titulo,contenido));
        util.imprime("Correo enviado!");
     }
     
     
-    
+    //Listamos los correos del usuario y los numeramos de forma que use esos numeros para borrarlos
     public void borrar(String nuser){
         int contador = 1;
         for (int i=0;i<email.size();i++){
@@ -57,7 +58,7 @@ public class Correos {
     
     
     
-    
+    //Metodo para volcar correos de prueba
     public void volcarcorreos(){
         email.add(new Email("Aaron","Nuria","Proyecto correo 1","Correo enviado de Nuria para Aaron. Primer correo del proyecto"));
         email.add(new Email("Aaron","Nuria","Proyecto correo 2","Correo enviado de Nuria para Aaron. Segundo correo del proyecto"));
