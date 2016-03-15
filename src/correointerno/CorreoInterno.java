@@ -20,7 +20,7 @@ public class CorreoInterno {
         Usuarios user = new Usuarios();
         Correos correo = new Correos();
         String nuser;
-        int opcion, salir=0;
+        int opcion, salir=1;
         
         //Volcamos usuarios de prueba y los correos de prueba
         user.volcarusuarios();
@@ -46,9 +46,11 @@ public class CorreoInterno {
             case 1:
                util.imprime("Tienes los siguientes correos "+nuser);
                correo.ver(nuser);
+               salir = util.smenu();
                break;
             case 2:
-               
+               correo.borrar(nuser);
+               salir = util.smenu();
                 break;
             case 3:
                 util.imprime("Escribe los datos para enviar el correo");
@@ -63,19 +65,20 @@ public class CorreoInterno {
                     enviar = user.cuserenv(ureceptor);
                     if (enviar == 0) { util.imprime("@@@ El receptor del correo no existe @@@"); } else { correo.agregar(ureceptor,nuser,titulo,texto); }
                     } while (enviar==0);
+                    salir = util.smenu();
                 break;
             case 4:
                 
                 break;
             case 0:
-                salir = 1;
+                salir = 0;
                 util.imprime("Gracias por usar el correo interno.\nAdios!");
                 break;
             default:     
                 util.imprime("No es una opcion valida, vuelve a probar");
                 break;
         }
-        } while (salir == 0);
+        } while (salir == 1);
     
 }
 }

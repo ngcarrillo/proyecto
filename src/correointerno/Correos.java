@@ -17,9 +17,11 @@ public class Correos {
     
     
     public void ver (String nuser){
+        int contador = 1;
         for (int i=0;i<email.size();i++){
             if (nuser.equals(email.get(i).ureceptor)){
-                util.imprime(email.get(i).titulo);
+                util.imprime(contador + " - " +email.get(i).titulo);
+                contador++;
             } 
             
         }
@@ -32,7 +34,26 @@ public class Correos {
     
     
     
-    
+    public void borrar(String nuser){
+        int contador = 1;
+        for (int i=0;i<email.size();i++){
+            if (nuser.equals(email.get(i).ureceptor)){
+                util.imprime(contador + " - " +email.get(i).titulo);
+                contador++;
+            } 
+            
+        }
+        util.imprime("Que numero de correo quieres borrar?");
+        int pregunta = util.qint();
+        contador = 1;
+        for (int i=0;i<email.size();i++){
+            if (nuser.equals(email.get(i).ureceptor)){
+                if (pregunta == contador) { email.remove(i); util.imprime("Correo borrado!");}
+                contador++;
+            } 
+            
+        }
+    }
     
     
     

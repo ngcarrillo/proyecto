@@ -33,4 +33,12 @@ public class Utils {
         imprime("==============================================\nHola "+nuser +", elige que quieres hacer\n  Ver tus correos (Opcion 1)\n  Borrar un correo (Opcion 2)\n  Enviar un correo (Opcion 3)\n  Salir del programa(Opcion 0)\nElige la opcion que quieres\n==============================================");
     }
      
+    public int smenu(){
+        int salir = 0;
+              do {
+              imprime("Quieres ir al menu (Opcion 1) o quieres salir del programa (Opcion 0)");
+              salir = qint();
+              } while (salir > 1 || salir <0);
+        return salir;
+    }
 }
