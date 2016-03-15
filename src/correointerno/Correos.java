@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Correos {
     ArrayList<Email> email = new ArrayList<>();
     Utils util = new Utils();
-    Usuarios user = new Usuarios();
+    
     
     public void ver (String nuser){
         for (int i=0;i<email.size();i++){
@@ -25,18 +25,9 @@ public class Correos {
         }
     }
     
-    public void enviar(String nuser){
-        int enviar = 0;
-        do {
-        util.imprime("A quien se lo quieres enviar?");
-        String ureceptor = util.qstring();
-        util.imprime("Escribe el titulo del correo");
-        String titulo = util.qstring();
-        util.imprime("Cual es el texto del email?");
-        String texto = util.qstring();
-        enviar = user.cuserenv(ureceptor);
-        if (enviar == 0) { util.imprime("El receptor del correo no existe"); } else { email.add(new Email(ureceptor,nuser,titulo,texto)); }
-        } while (enviar==0);
+    public void agregar(String ureceptor, String uenvia, String titulo, String contenido){
+       email.add(new Email(ureceptor,uenvia,titulo,contenido));
+       util.imprime("Correo enviado!");
     }
     
     

@@ -35,12 +35,12 @@ public class CorreoInterno {
         util.imprime("Introduce tu password");
         String npass = util.qstring();
         autenticado = user.comprueba(nuser,npass);
-        if (autenticado == 0) { util.imprime("Error de credenciales, vuelve a probar"); }
+        if (autenticado == 0) { util.imprime("@@@ Error de credenciales, vuelve a probar @@@"); }
         } while (autenticado == 0);
         
+        do {
         util.menu(nuser);
         
-        util.imprime("Elige tu opcion");
         int Opcion = util.qint();
         switch (Opcion){
             case 1:
@@ -52,7 +52,17 @@ public class CorreoInterno {
                 break;
             case 3:
                 util.imprime("Escribe los datos para enviar el correo");
-                correo.enviar(nuser);
+                  int enviar = 0;
+                    do {
+                    util.imprime("A quien se lo quieres enviar?");
+                    String ureceptor = util.qstring();
+                    util.imprime("Escribe el titulo del correo");
+                    String titulo = util.qstring();
+                    util.imprime("Cual es el texto del email?");
+                    String texto = util.qstring();
+                    enviar = user.cuserenv(ureceptor);
+                    if (enviar == 0) { util.imprime("@@@ El receptor del correo no existe @@@"); } else { correo.agregar(ureceptor,nuser,titulo,texto); }
+                    } while (enviar==0);
                 break;
             case 4:
                 
@@ -63,11 +73,9 @@ public class CorreoInterno {
                 break;
             default:     
                 util.imprime("No es una opcion valida, vuelve a probar");
-                break;    
-        
-        
-        
-    }
+                break;
+        }
+        } while (salir == 0);
     
 }
 }
